@@ -6,15 +6,14 @@
   "sideEffects": false,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "webpack --watch --config webpack.production.js",
-    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "watch": "webpack --watch --config webpack.dev.js",
+    "start": "webpack-dev-server --config webpack.dev.js",
     "server": "node server/index.js",
     "build": "webpack --config webpack.production.js",
     "server-build": "webpack --config webpack.server.config.js",
-    "server-start": "nodemon server.js --exec babel-node --presets es2015,stage-2",
+    "server-start": "nodemon server.js --delay 3",
     "lint": "eslint --ext .jsx --ext .js client/** server/**",
     "lint-fix": "eslint --fix --ext .jsx --ext .js client/** server/**"
-
   },
   "author": "",
   "license": "ISC",
@@ -38,18 +37,23 @@
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
+    "@material-ui/core": "^3.1.2",
+    "@material-ui/icons": "^3.0.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-react-app": "3",
+    "classnames": "^2.2.6",
     "qs": "^6.5.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
     "redux": "^4.0.0",
     "redux-act": "^1.7.4",
+    "typeface-roboto": "^0.0.54",
     "webpack-node-externals": "^1.7.2"
   }
 }

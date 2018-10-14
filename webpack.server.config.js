@@ -18,9 +18,15 @@ module.exports = {
       }
     ]
   },
+  resolve: {
+    alias: {
+      '@state': path.resolve(__dirname, 'client/state/'),
+      '@views': path.resolve(__dirname, 'client/views/')
+    },
+    extensions: ['.js', '.jsx'],
+  },
   externals: [webpackNodeExternals()],
   watchOptions: {
-    aggregateTimeout: 300,
     poll: 1000
   }
 };

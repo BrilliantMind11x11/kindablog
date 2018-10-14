@@ -1,15 +1,25 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import App from '../client/containers/index.jsx';
-import reducers from '../client/state';
+import App from '@views';
+import reducers from '@state';
 
 import { createStore, compose, applyMiddleware } from 'redux';
 import { renderToString } from 'react-dom/server';
 
-const qs = require('qs');
-const express = require('express');
-const webpack = require('webpack');
-const webpackDevMiddleware = require('webpack-dev-middleware');
+import ReactDOMServer from "react-dom/server";
+import { StaticRouter as Router } from "react-router";
+
+
+import qs from 'qs';
+import express from 'express';
+import webpack from 'webpack';
+import webpackDevMiddleware from 'webpack-dev-middleware';
+
+
+
+
+
+
 
 const app = express();
 const config = require('../webpack.config.js');
@@ -27,17 +37,18 @@ app.use(handleRender);
 function handleRender(req, res) {
   const params = qs.parse(req.query);
   const user = { id: 1, name: 'server user' };
-
+  const context = {};
 
   const composeEnhancers = typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ && window.__REDUX_DEVTOOLS_EXTENSION__() || compose;
 
   // Create a new Redux store instance
   const store = createStore(reducers, { user }, composeEnhancers);
-  console.log(user);
   // Render the component to a string
   const html = renderToString(
     <Provider store={store}>
-      <App />
+      <Router location={req.url} context={context}>
+        <App />
+      </Router>
     </Provider>,
   );
   // Grab the initial state from our Redux store

@@ -86,18 +86,6 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./client/containers/index.jsx":
-/*!*************************************!*\
-  !*** ./client/containers/index.jsx ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ \"react-redux\");\n\nvar _state = __webpack_require__(/*! ../state */ \"./client/state/index.js\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar mapStateToProps = function mapStateToProps(state) {\n  return {\n    user: _state.selectors.selectUser(state)\n  };\n};\n\nvar App = function App(_ref) {\n  var user = _ref.user;\n  return _react2.default.createElement(\n    'div',\n    { className: 'app' },\n    _react2.default.createElement(\n      'h3',\n      null,\n      'Your user name is :',\n      user.name\n    )\n  );\n};\n\nexports.default = (0, _reactRedux.connect)(mapStateToProps)(App);\n\n//# sourceURL=webpack:///./client/containers/index.jsx?");
-
-/***/ }),
-
 /***/ "./client/state/index.js":
 /*!*******************************!*\
   !*** ./client/state/index.js ***!
@@ -118,7 +106,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.getUserData = undefined;\n\nvar _reduxAct = __webpack_require__(/*! redux-act */ \"redux-act\");\n\nvar getUserData = exports.getUserData = (0, _reduxAct.createAction)('GET_USER_DATA', function () {\n  return { id: 1, name: 'Admin' };\n});\n\n//# sourceURL=webpack:///./client/state/user/actions.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.getUserData = undefined;\n\nvar _reduxAct = __webpack_require__(/*! redux-act */ \"redux-act\");\n\nvar _types = __webpack_require__(/*! ./types */ \"./client/state/user/types.js\");\n\nvar _types2 = _interopRequireDefault(_types);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar GET_USER_DATA = _types2.default.GET_USER_DATA;\nvar getUserData = exports.getUserData = (0, _reduxAct.createAction)(GET_USER_DATA, function () {\n  return { id: 1, name: 'Admin' };\n});\n\n//# sourceURL=webpack:///./client/state/user/actions.js?");
 
 /***/ }),
 
@@ -158,6 +146,78 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 
 /***/ }),
 
+/***/ "./client/state/user/types.js":
+/*!************************************!*\
+  !*** ./client/state/user/types.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nvar GET_USER_DATA = 'app/user/get';\n\nexports.default = {\n    GET_USER_DATA: GET_USER_DATA\n};\n\n//# sourceURL=webpack:///./client/state/user/types.js?");
+
+/***/ }),
+
+/***/ "./client/views/about/index.jsx":
+/*!**************************************!*\
+  !*** ./client/views/about/index.jsx ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _propTypes = __webpack_require__(/*! prop-types */ \"prop-types\");\n\nvar _propTypes2 = _interopRequireDefault(_propTypes);\n\nvar _styles = __webpack_require__(/*! @material-ui/core/styles */ \"@material-ui/core/styles\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar styles = {\n  avatar: {\n    margin: 10\n  },\n  row: {\n    display: 'flex',\n    justifyContent: 'center'\n  }\n};\n\nvar About = function About(_ref) {\n  var classes = _ref.classes,\n      user = _ref.user;\n  return _react2.default.createElement(\n    'div',\n    { className: classes.row },\n    _react2.default.createElement(\n      'h1',\n      null,\n      'This is about project page'\n    ),\n    _react2.default.createElement(\n      'p',\n      null,\n      'Project page'\n    )\n  );\n};\n\nexports.default = (0, _styles.withStyles)(styles)(About);\n\n//# sourceURL=webpack:///./client/views/about/index.jsx?");
+
+/***/ }),
+
+/***/ "./client/views/appBar/index.jsx":
+/*!***************************************!*\
+  !*** ./client/views/appBar/index.jsx ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _propTypes = __webpack_require__(/*! prop-types */ \"prop-types\");\n\nvar _propTypes2 = _interopRequireDefault(_propTypes);\n\nvar _reactRouterDom = __webpack_require__(/*! react-router-dom */ \"react-router-dom\");\n\nvar _styles = __webpack_require__(/*! @material-ui/core/styles */ \"@material-ui/core/styles\");\n\nvar _AppBar = __webpack_require__(/*! @material-ui/core/AppBar */ \"@material-ui/core/AppBar\");\n\nvar _AppBar2 = _interopRequireDefault(_AppBar);\n\nvar _Toolbar = __webpack_require__(/*! @material-ui/core/Toolbar */ \"@material-ui/core/Toolbar\");\n\nvar _Toolbar2 = _interopRequireDefault(_Toolbar);\n\nvar _Typography = __webpack_require__(/*! @material-ui/core/Typography */ \"@material-ui/core/Typography\");\n\nvar _Typography2 = _interopRequireDefault(_Typography);\n\nvar _IconButton = __webpack_require__(/*! @material-ui/core/IconButton */ \"@material-ui/core/IconButton\");\n\nvar _IconButton2 = _interopRequireDefault(_IconButton);\n\nvar _Paper = __webpack_require__(/*! @material-ui/core/Paper */ \"@material-ui/core/Paper\");\n\nvar _Paper2 = _interopRequireDefault(_Paper);\n\nvar _Grid = __webpack_require__(/*! @material-ui/core/Grid */ \"@material-ui/core/Grid\");\n\nvar _Grid2 = _interopRequireDefault(_Grid);\n\nvar _Menu = __webpack_require__(/*! @material-ui/icons/Menu */ \"@material-ui/icons/Menu\");\n\nvar _Menu2 = _interopRequireDefault(_Menu);\n\nvar _user = __webpack_require__(/*! @views/user */ \"./client/views/user/index.jsx\");\n\nvar _user2 = _interopRequireDefault(_user);\n\nvar _home = __webpack_require__(/*! @views/home */ \"./client/views/home/index.jsx\");\n\nvar _home2 = _interopRequireDefault(_home);\n\nvar _about = __webpack_require__(/*! @views/about */ \"./client/views/about/index.jsx\");\n\nvar _about2 = _interopRequireDefault(_about);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar styles = function styles(theme) {\n  return {\n    root: {\n      flexGrow: 1\n    },\n    grow: {\n      flexGrow: 1\n    },\n    menuButton: {\n      marginLeft: -12,\n      marginRight: 20\n    },\n    paper: {\n      padding: theme.spacing.unit * 2,\n      textAlign: 'center',\n      color: theme.palette.text.secondary\n    }\n  };\n};\n\nfunction ButtonAppBar(props) {\n  var classes = props.classes;\n\n  return _react2.default.createElement(\n    'div',\n    { className: classes.root },\n    _react2.default.createElement(\n      _Grid2.default,\n      { container: true, spacing: 24 },\n      _react2.default.createElement(\n        _Grid2.default,\n        { item: true, xs: 6, sm: 3 },\n        _react2.default.createElement(\n          _AppBar2.default,\n          { position: 'static' },\n          _react2.default.createElement(\n            _Toolbar2.default,\n            null,\n            _react2.default.createElement(\n              _IconButton2.default,\n              { className: classes.menuButton, color: 'inherit', 'aria-label': 'Menu' },\n              _react2.default.createElement(_Menu2.default, null)\n            ),\n            _react2.default.createElement(\n              _Typography2.default,\n              { variant: 'title', color: 'inherit', className: classes.grow },\n              _react2.default.createElement(\n                _reactRouterDom.Link,\n                { to: '/' },\n                'Home'\n              )\n            ),\n            _react2.default.createElement(\n              _Typography2.default,\n              { variant: 'title', color: 'inherit', className: classes.grow },\n              _react2.default.createElement(\n                _reactRouterDom.Link,\n                { to: '/about' },\n                'About'\n              )\n            ),\n            _react2.default.createElement(_user2.default, null)\n          )\n        )\n      ),\n      _react2.default.createElement(\n        _Grid2.default,\n        { item: true, xs: 6, sm: 3 },\n        _react2.default.createElement(\n          _Paper2.default,\n          { className: classes.paper },\n          'xs=12 sm=6'\n        )\n      ),\n      _react2.default.createElement(\n        _Grid2.default,\n        { item: true, xs: 6, sm: 9 },\n        _react2.default.createElement(\n          _Paper2.default,\n          { className: classes.paper },\n          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _home2.default }),\n          _react2.default.createElement(_reactRouterDom.Route, { path: '/about', component: _about2.default })\n        )\n      )\n    )\n  );\n}\n\nButtonAppBar.propTypes = {\n  classes: _propTypes2.default.object.isRequired\n};\n\nexports.default = (0, _styles.withStyles)(styles)(ButtonAppBar);\n\n//# sourceURL=webpack:///./client/views/appBar/index.jsx?");
+
+/***/ }),
+
+/***/ "./client/views/home/index.jsx":
+/*!*************************************!*\
+  !*** ./client/views/home/index.jsx ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _propTypes = __webpack_require__(/*! prop-types */ \"prop-types\");\n\nvar _propTypes2 = _interopRequireDefault(_propTypes);\n\nvar _styles = __webpack_require__(/*! @material-ui/core/styles */ \"@material-ui/core/styles\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar styles = {\n  avatar: {\n    margin: 10\n  },\n  row: {\n    display: 'flex',\n    justifyContent: 'center'\n  }\n};\n\nvar Home = function Home(_ref) {\n  var classes = _ref.classes,\n      user = _ref.user;\n  return _react2.default.createElement(\n    'div',\n    { className: classes.row },\n    _react2.default.createElement(\n      'h1',\n      null,\n      'This is home page'\n    ),\n    _react2.default.createElement(\n      'p',\n      null,\n      'Home page'\n    )\n  );\n};\n\nexports.default = (0, _styles.withStyles)(styles)(Home);\n\n//# sourceURL=webpack:///./client/views/home/index.jsx?");
+
+/***/ }),
+
+/***/ "./client/views/index.jsx":
+/*!********************************!*\
+  !*** ./client/views/index.jsx ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _propTypes = __webpack_require__(/*! prop-types */ \"prop-types\");\n\nvar _propTypes2 = _interopRequireDefault(_propTypes);\n\nvar _styles = __webpack_require__(/*! @material-ui/core/styles */ \"@material-ui/core/styles\");\n\nvar _Paper = __webpack_require__(/*! @material-ui/core/Paper */ \"@material-ui/core/Paper\");\n\nvar _Paper2 = _interopRequireDefault(_Paper);\n\nvar _Grid = __webpack_require__(/*! @material-ui/core/Grid */ \"@material-ui/core/Grid\");\n\nvar _Grid2 = _interopRequireDefault(_Grid);\n\nvar _user = __webpack_require__(/*! @views/user */ \"./client/views/user/index.jsx\");\n\nvar _user2 = _interopRequireDefault(_user);\n\nvar _appBar = __webpack_require__(/*! @views/appBar */ \"./client/views/appBar/index.jsx\");\n\nvar _appBar2 = _interopRequireDefault(_appBar);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar styles = function styles(theme) {\n  return {\n    root: {\n      flexGrow: 1\n    }\n  };\n};\n\nvar App = function App(_ref) {\n  var classes = _ref.classes;\n  return _react2.default.createElement(\n    'div',\n    { className: classes.root },\n    _react2.default.createElement(_appBar2.default, null)\n  );\n};\n\nexports.default = (0, _styles.withStyles)(styles)(App);\n\n//# sourceURL=webpack:///./client/views/index.jsx?");
+
+/***/ }),
+
+/***/ "./client/views/user/index.jsx":
+/*!*************************************!*\
+  !*** ./client/views/user/index.jsx ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _propTypes = __webpack_require__(/*! prop-types */ \"prop-types\");\n\nvar _propTypes2 = _interopRequireDefault(_propTypes);\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ \"react-redux\");\n\nvar _lodash = __webpack_require__(/*! lodash */ \"lodash\");\n\nvar _lodash2 = _interopRequireDefault(_lodash);\n\nvar _styles = __webpack_require__(/*! @material-ui/core/styles */ \"@material-ui/core/styles\");\n\nvar _Avatar = __webpack_require__(/*! @material-ui/core/Avatar */ \"@material-ui/core/Avatar\");\n\nvar _Avatar2 = _interopRequireDefault(_Avatar);\n\nvar _Button = __webpack_require__(/*! @material-ui/core/Button */ \"@material-ui/core/Button\");\n\nvar _Button2 = _interopRequireDefault(_Button);\n\nvar _state = __webpack_require__(/*! @state */ \"./client/state/index.js\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar styles = {\n  avatar: {\n    margin: 10\n  },\n  row: {\n    display: 'flex',\n    justifyContent: 'center'\n  }\n};\n\nvar mapStateToProps = function mapStateToProps(state) {\n  return {\n    user: _state.selectors.selectUser(state)\n  };\n};\n\nvar UserAvatar = function UserAvatar(_ref) {\n  var classes = _ref.classes,\n      user = _ref.user;\n  return !_lodash2.default.isEmpty(user) ? _react2.default.createElement(\n    'div',\n    { className: classes.row },\n    _react2.default.createElement(\n      _Avatar2.default,\n      { className: classes.avatar },\n      user.name.slice(0, 2)\n    )\n  ) : _react2.default.createElement(\n    'div',\n    { className: classes.row },\n    _react2.default.createElement(\n      _Button2.default,\n      { color: 'inherit' },\n      'Login'\n    )\n  );\n};\n\nexports.default = (0, _reactRedux.connect)(mapStateToProps)((0, _styles.withStyles)(styles)(UserAvatar));\n\n//# sourceURL=webpack:///./client/views/user/index.jsx?");
+
+/***/ }),
+
 /***/ "./server/index.js":
 /*!*************************!*\
   !*** ./server/index.js ***!
@@ -166,7 +226,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nvar _typeof = typeof Symbol === \"function\" && typeof Symbol.iterator === \"symbol\" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === \"function\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \"symbol\" : typeof obj; };\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ \"react-redux\");\n\nvar _index = __webpack_require__(/*! ../client/containers/index.jsx */ \"./client/containers/index.jsx\");\n\nvar _index2 = _interopRequireDefault(_index);\n\nvar _state = __webpack_require__(/*! ../client/state */ \"./client/state/index.js\");\n\nvar _state2 = _interopRequireDefault(_state);\n\nvar _redux = __webpack_require__(/*! redux */ \"redux\");\n\nvar _server = __webpack_require__(/*! react-dom/server */ \"react-dom/server\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar qs = __webpack_require__(/*! qs */ \"qs\");\nvar express = __webpack_require__(/*! express */ \"express\");\nvar webpack = __webpack_require__(/*! webpack */ \"webpack\");\nvar webpackDevMiddleware = __webpack_require__(/*! webpack-dev-middleware */ \"webpack-dev-middleware\");\n\nvar app = express();\nvar config = __webpack_require__(/*! ../webpack.config.js */ \"./webpack.config.js\");\nvar compiler = webpack(config);\n// Tell express to use the webpack-dev-middleware and use the webpack.config.js\n// configuration file as a base.\n// app.use(webpackDevMiddleware(compiler, {\n//   publicPath: config.output.publicPath\n// }));\n\napp.use('/dist', express.static('dist'));\n\napp.use(handleRender);\n\nfunction handleRender(req, res) {\n  var params = qs.parse(req.query);\n  var user = { id: 1, name: 'server user' };\n\n  var composeEnhancers = (typeof window === 'undefined' ? 'undefined' : _typeof(window)) === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ && window.__REDUX_DEVTOOLS_EXTENSION__() || _redux.compose;\n\n  // Create a new Redux store instance\n  var store = (0, _redux.createStore)(_state2.default, { user: user }, composeEnhancers);\n  console.log(user);\n  // Render the component to a string\n  var html = (0, _server.renderToString)(_react2.default.createElement(\n    _reactRedux.Provider,\n    { store: store },\n    _react2.default.createElement(_index2.default, null)\n  ));\n  // Grab the initial state from our Redux store\n  var preloadedState = store.getState();\n  // Send the rendered page back to the client\n  res.send(renderFullPage(html, preloadedState));\n}\n\nfunction renderFullPage(html) {\n  var preloadedState = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};\n\n  return '\\n    <!doctype html>\\n    <html>\\n      <head>\\n        <meta http-equiv=\"Content-type\" content=\"text/html; charset=utf-8\"/>\\n        <title>SomeTitle</title>\\n      </head>\\n      <body>\\n        <div id=\"react-app\">' + html + '</div>\\n        <script>\\n          window.__PRELOADED_STATE__ = ' + JSON.stringify(preloadedState).replace(/</g, '\\\\u003c') + '\\n        </script>\\n        <script src=\"./dist/vendors~app.bundle.js\"></script>\\n        <script src=\"./dist/app.bundle.js\"></script>\\n      </body>\\n    </html>\\n  ';\n}\n\n// Serve the files on port 3000.\napp.listen(3000, function () {\n  console.log('Example app listening on port 3000!\\n');\n});\n\n//# sourceURL=webpack:///./server/index.js?");
+eval("\n\nvar _typeof = typeof Symbol === \"function\" && typeof Symbol.iterator === \"symbol\" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === \"function\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \"symbol\" : typeof obj; };\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ \"react-redux\");\n\nvar _views = __webpack_require__(/*! @views */ \"./client/views/index.jsx\");\n\nvar _views2 = _interopRequireDefault(_views);\n\nvar _state = __webpack_require__(/*! @state */ \"./client/state/index.js\");\n\nvar _state2 = _interopRequireDefault(_state);\n\nvar _redux = __webpack_require__(/*! redux */ \"redux\");\n\nvar _server = __webpack_require__(/*! react-dom/server */ \"react-dom/server\");\n\nvar _server2 = _interopRequireDefault(_server);\n\nvar _reactRouter = __webpack_require__(/*! react-router */ \"react-router\");\n\nvar _qs = __webpack_require__(/*! qs */ \"qs\");\n\nvar _qs2 = _interopRequireDefault(_qs);\n\nvar _express = __webpack_require__(/*! express */ \"express\");\n\nvar _express2 = _interopRequireDefault(_express);\n\nvar _webpack = __webpack_require__(/*! webpack */ \"webpack\");\n\nvar _webpack2 = _interopRequireDefault(_webpack);\n\nvar _webpackDevMiddleware = __webpack_require__(/*! webpack-dev-middleware */ \"webpack-dev-middleware\");\n\nvar _webpackDevMiddleware2 = _interopRequireDefault(_webpackDevMiddleware);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar app = (0, _express2.default)();\nvar config = __webpack_require__(/*! ../webpack.config.js */ \"./webpack.config.js\");\nvar compiler = (0, _webpack2.default)(config);\n// Tell express to use the webpack-dev-middleware and use the webpack.config.js\n// configuration file as a base.\n// app.use(webpackDevMiddleware(compiler, {\n//   publicPath: config.output.publicPath\n// }));\n\napp.use('/dist', _express2.default.static('dist'));\n\napp.use(handleRender);\n\nfunction handleRender(req, res) {\n  var params = _qs2.default.parse(req.query);\n  var user = { id: 1, name: 'server user' };\n  var context = {};\n\n  var composeEnhancers = (typeof window === 'undefined' ? 'undefined' : _typeof(window)) === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ && window.__REDUX_DEVTOOLS_EXTENSION__() || _redux.compose;\n\n  // Create a new Redux store instance\n  var store = (0, _redux.createStore)(_state2.default, { user: user }, composeEnhancers);\n  // Render the component to a string\n  var html = (0, _server.renderToString)(_react2.default.createElement(\n    _reactRedux.Provider,\n    { store: store },\n    _react2.default.createElement(\n      _reactRouter.StaticRouter,\n      { location: req.url, context: context },\n      _react2.default.createElement(_views2.default, null)\n    )\n  ));\n  // Grab the initial state from our Redux store\n  var preloadedState = store.getState();\n  // Send the rendered page back to the client\n  res.send(renderFullPage(html, preloadedState));\n}\n\nfunction renderFullPage(html) {\n  var preloadedState = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};\n\n  return '\\n    <!doctype html>\\n    <html>\\n      <head>\\n        <meta http-equiv=\"Content-type\" content=\"text/html; charset=utf-8\"/>\\n        <title>SomeTitle</title>\\n      </head>\\n      <body>\\n        <div id=\"react-app\">' + html + '</div>\\n        <script>\\n          window.__PRELOADED_STATE__ = ' + JSON.stringify(preloadedState).replace(/</g, '\\\\u003c') + '\\n        </script>\\n        <script src=\"./dist/vendors~app.bundle.js\"></script>\\n        <script src=\"./dist/app.bundle.js\"></script>\\n      </body>\\n    </html>\\n  ';\n}\n\n// Serve the files on port 3000.\napp.listen(3000, function () {\n  console.log('Example app listening on port 3000!\\n');\n});\n\n//# sourceURL=webpack:///./server/index.js?");
 
 /***/ }),
 
@@ -179,6 +239,116 @@ eval("\n\nvar _typeof = typeof Symbol === \"function\" && typeof Symbol.iterator
 
 "use strict";
 eval("/* WEBPACK VAR INJECTION */(function(__dirname) {\n\nvar path = __webpack_require__(/*! path */ \"path\");\nvar HtmlWebpackPlugin = __webpack_require__(/*! html-webpack-plugin */ \"html-webpack-plugin\");\nvar CleanWebpackPlugin = __webpack_require__(/*! clean-webpack-plugin */ \"clean-webpack-plugin\");\n\nmodule.exports = {\n  entry: {\n    app: './client/index.js'\n  },\n  devtool: 'inline-source-map',\n  devServer: {\n    contentBase: './dist'\n  },\n  plugins: [new HtmlWebpackPlugin({\n    title: 'React webpack starter'\n  })],\n  output: {\n    filename: '[name].bundle.js',\n    path: path.resolve(__dirname, 'dist'),\n    publicPath: '/'\n  },\n  mode: \"development\"\n};\n/* WEBPACK VAR INJECTION */}.call(this, \"/\"))\n\n//# sourceURL=webpack:///./webpack.config.js?");
+
+/***/ }),
+
+/***/ "@material-ui/core/AppBar":
+/*!*******************************************!*\
+  !*** external "@material-ui/core/AppBar" ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"@material-ui/core/AppBar\");\n\n//# sourceURL=webpack:///external_%22@material-ui/core/AppBar%22?");
+
+/***/ }),
+
+/***/ "@material-ui/core/Avatar":
+/*!*******************************************!*\
+  !*** external "@material-ui/core/Avatar" ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"@material-ui/core/Avatar\");\n\n//# sourceURL=webpack:///external_%22@material-ui/core/Avatar%22?");
+
+/***/ }),
+
+/***/ "@material-ui/core/Button":
+/*!*******************************************!*\
+  !*** external "@material-ui/core/Button" ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"@material-ui/core/Button\");\n\n//# sourceURL=webpack:///external_%22@material-ui/core/Button%22?");
+
+/***/ }),
+
+/***/ "@material-ui/core/Grid":
+/*!*****************************************!*\
+  !*** external "@material-ui/core/Grid" ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"@material-ui/core/Grid\");\n\n//# sourceURL=webpack:///external_%22@material-ui/core/Grid%22?");
+
+/***/ }),
+
+/***/ "@material-ui/core/IconButton":
+/*!***********************************************!*\
+  !*** external "@material-ui/core/IconButton" ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"@material-ui/core/IconButton\");\n\n//# sourceURL=webpack:///external_%22@material-ui/core/IconButton%22?");
+
+/***/ }),
+
+/***/ "@material-ui/core/Paper":
+/*!******************************************!*\
+  !*** external "@material-ui/core/Paper" ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"@material-ui/core/Paper\");\n\n//# sourceURL=webpack:///external_%22@material-ui/core/Paper%22?");
+
+/***/ }),
+
+/***/ "@material-ui/core/Toolbar":
+/*!********************************************!*\
+  !*** external "@material-ui/core/Toolbar" ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"@material-ui/core/Toolbar\");\n\n//# sourceURL=webpack:///external_%22@material-ui/core/Toolbar%22?");
+
+/***/ }),
+
+/***/ "@material-ui/core/Typography":
+/*!***********************************************!*\
+  !*** external "@material-ui/core/Typography" ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"@material-ui/core/Typography\");\n\n//# sourceURL=webpack:///external_%22@material-ui/core/Typography%22?");
+
+/***/ }),
+
+/***/ "@material-ui/core/styles":
+/*!*******************************************!*\
+  !*** external "@material-ui/core/styles" ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"@material-ui/core/styles\");\n\n//# sourceURL=webpack:///external_%22@material-ui/core/styles%22?");
+
+/***/ }),
+
+/***/ "@material-ui/icons/Menu":
+/*!******************************************!*\
+  !*** external "@material-ui/icons/Menu" ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"@material-ui/icons/Menu\");\n\n//# sourceURL=webpack:///external_%22@material-ui/icons/Menu%22?");
 
 /***/ }),
 
@@ -215,6 +385,17 @@ eval("module.exports = require(\"html-webpack-plugin\");\n\n//# sourceURL=webpac
 
 /***/ }),
 
+/***/ "lodash":
+/*!*************************!*\
+  !*** external "lodash" ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"lodash\");\n\n//# sourceURL=webpack:///external_%22lodash%22?");
+
+/***/ }),
+
 /***/ "path":
 /*!***********************!*\
   !*** external "path" ***!
@@ -223,6 +404,17 @@ eval("module.exports = require(\"html-webpack-plugin\");\n\n//# sourceURL=webpac
 /***/ (function(module, exports) {
 
 eval("module.exports = require(\"path\");\n\n//# sourceURL=webpack:///external_%22path%22?");
+
+/***/ }),
+
+/***/ "prop-types":
+/*!*****************************!*\
+  !*** external "prop-types" ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"prop-types\");\n\n//# sourceURL=webpack:///external_%22prop-types%22?");
 
 /***/ }),
 
@@ -267,6 +459,28 @@ eval("module.exports = require(\"react-dom/server\");\n\n//# sourceURL=webpack:/
 /***/ (function(module, exports) {
 
 eval("module.exports = require(\"react-redux\");\n\n//# sourceURL=webpack:///external_%22react-redux%22?");
+
+/***/ }),
+
+/***/ "react-router":
+/*!*******************************!*\
+  !*** external "react-router" ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"react-router\");\n\n//# sourceURL=webpack:///external_%22react-router%22?");
+
+/***/ }),
+
+/***/ "react-router-dom":
+/*!***********************************!*\
+  !*** external "react-router-dom" ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"react-router-dom\");\n\n//# sourceURL=webpack:///external_%22react-router-dom%22?");
 
 /***/ }),
 
