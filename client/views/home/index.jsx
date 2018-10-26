@@ -13,11 +13,16 @@ const styles = {
 };
 
 
-const Home = ({ classes, user }) => (
-    <div className={classes.row}>
-      <h1>This is home page</h1>
-      <p>Home page</p>
-    </div>
+const Home = ({ classes }) => (
+  <div className={classes.row}>
+    <h1>This is home page</h1>
+    <p>Home page</p>
+  </div>
 );
+
+Home.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
 
 export default withStyles(styles)(Home);

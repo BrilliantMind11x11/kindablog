@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Route, Link } from "react-router-dom";
+import { Route, Link } from 'react-router-dom';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -14,7 +14,7 @@ import User from '@views/user';
 import Home from '@views/home';
 import About from '@views/about';
 
-const styles = (theme) => ({
+const styles = theme => ({
   root: {
     flexGrow: 1,
   },
@@ -48,49 +48,46 @@ const styles = (theme) => ({
 });
 
 
-function ButtonAppBar(props) {
-  const { classes } = props;
-  return (
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="title" color="inherit" className={classes.grow}>
-            <Link to="/">Home</Link>
-          </Typography>
-          <Typography variant="title" color="inherit" className={classes.grow}>
-            <Link to="/about">About</Link>
-          </Typography>
-          <User />
-        </Toolbar>
-      </AppBar>
-      <main className={classes.layout}>
-        <Grid container spacing={24}>
-          <Grid item xs={6} sm={3}>
-            <Paper className={classes.paper}>xs=12 sm=6</Paper>
-          </Grid>
-          <Grid item xs={6} sm={9}>
-            <Paper className={classes.paper}>
-              <Route exact path="/" component={Home} />
-              <Route path="/about" component={About} />
-            </Paper>
-          </Grid>
+const ButtonAppBar = ({ classes }) => (
+  <div className={classes.root}>
+    <AppBar position="static">
+      <Toolbar>
+        <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
+          <MenuIcon />
+        </IconButton>
+        <Typography variant="title" color="inherit" className={classes.grow}>
+          <Link to="/">Home</Link>
+        </Typography>
+        <Typography variant="title" color="inherit" className={classes.grow}>
+          <Link to="/about">About</Link>
+        </Typography>
+        <User />
+      </Toolbar>
+    </AppBar>
+    <main className={classes.layout}>
+      <Grid container spacing={24}>
+        <Grid item xs={6} sm={3}>
+          <Paper className={classes.paper}>xs=12 sm=6</Paper>
         </Grid>
-      </main>
-      <footer className={classNames(classes.footer, classes.layout)}>
-        <Grid container spacing={32} justify="space-evenly">
-          <Grid item xs key="footer">
-            <Typography variant="display2" color="textPrimary" gutterBottom>
-              Footer
-            </Typography>
-          </Grid>
+        <Grid item xs={6} sm={9}>
+          <Paper className={classes.paper}>
+            <Route exact path="/" component={Home} />
+            <Route path="/about" component={About} />
+          </Paper>
         </Grid>
-      </footer>
-    </div>
-  );
-}
+      </Grid>
+    </main>
+    <footer className={classNames(classes.footer, classes.layout)}>
+      <Grid container spacing={32} justify="space-evenly">
+        <Grid item xs key="footer">
+          <Typography variant="display2" color="textPrimary" gutterBottom>
+            Footer
+          </Typography>
+        </Grid>
+      </Grid>
+    </footer>
+  </div>
+);
 
 ButtonAppBar.propTypes = {
   classes: PropTypes.object.isRequired,

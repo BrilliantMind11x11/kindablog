@@ -10,8 +10,9 @@
     "start": "webpack-dev-server --config webpack.dev.js",
     "server": "node server/index.js",
     "build": "webpack --config webpack.production.js",
+    "server-watch": "webpack --watch --config webpack.server.config.js",
     "server-build": "webpack --config webpack.server.config.js",
-    "server-start": "nodemon server.js --delay 3",
+    "server-start": "nodemon server.js --exec babel-node --presets babel-preset-env",
     "lint": "eslint --ext .jsx --ext .js client/** server/**",
     "lint-fix": "eslint --fix --ext .jsx --ext .js client/** server/**"
   },
@@ -46,13 +47,17 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-react-app": "3",
     "classnames": "^2.2.6",
+    "lodash": "^4.17.11",
+    "prop-types": "^15.6.2",
     "qs": "^6.5.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-jss": "^8.6.1",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.0",
     "redux-act": "^1.7.4",
+    "serve-favicon": "^2.5.0",
     "typeface-roboto": "^0.0.54",
     "webpack-node-externals": "^1.7.2"
   }

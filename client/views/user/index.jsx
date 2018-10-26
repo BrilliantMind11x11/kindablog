@@ -36,4 +36,9 @@ const UserAvatar = ({ classes, user }) => (
 
 );
 
+UserAvatar.propTypes = {
+  classes: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
+};
+
 export default connect(mapStateToProps)(withStyles(styles)(UserAvatar));

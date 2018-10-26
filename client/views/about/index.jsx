@@ -13,11 +13,15 @@ const styles = {
 };
 
 
-const About = ({ classes, user }) => (
-    <div className={classes.row}>
-      <h1>This is about project page</h1>
-      <p>Project page</p>
-    </div>
+const About = ({ classes }) => (
+  <div className={classes.row}>
+    <h1>This is about project page</h1>
+    <p>Project page</p>
+  </div>
 );
+
+About.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
 
 export default withStyles(styles)(About);

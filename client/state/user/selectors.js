@@ -1,5 +1,1 @@
-const selectUser = state => state.user;
-
-export {
-  selectUser,
-};
+export const selectUser = state => state.user;

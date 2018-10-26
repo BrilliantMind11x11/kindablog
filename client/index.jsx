@@ -1,28 +1,61 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 // import 'typeface-roboto';
 import { Provider } from 'react-redux';
 import { createStore, compose, applyMiddleware } from 'redux';
-import { hydrate } from 'react-dom'
+import { hydrate } from 'react-dom';
 import reducers from '@state';
 import App from '@views';
-import { BrowserRouter as Router } from 'react-router-dom'
-
-
-console.log('here 6');
+import { BrowserRouter as Router } from 'react-router-dom';
+// material ui stuff
+import JssProvider from 'react-jss/lib/JssProvider';
+import {
+  MuiThemeProvider,
+  createMuiTheme,
+  createGenerateClassName,
+} from '@material-ui/core/styles';
+import green from '@material-ui/core/colors/green';
+import red from '@material-ui/core/colors/red';
 
 const composeEnhancers = typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ && window.__REDUX_DEVTOOLS_EXTENSION__() || compose;
-
 const preloadedState = window.__PRELOADED_STATE__;
 delete window.__PRELOADED_STATE__;
-
 const store = createStore(reducers, preloadedState, composeEnhancers);
 
+class Main extends React.Component {
+  // Remove the server-side injected CSS.
+  componentDidMount() {
+    const jssStyles = document.getElementById('jss-server-side');
+    if (jssStyles && jssStyles.parentNode) {
+      jssStyles.parentNode.removeChild(jssStyles);
+    }
+  }
+
+  render() {
+    return <App />;
+  }
+}
+
+// Create a theme instance.
+const theme = createMuiTheme({
+  palette: {
+    primary: green,
+    accent: red,
+    type: 'light',
+  },
+});
+
+// Create a new class name generator.
+const generateClassName = createGenerateClassName();
+
 hydrate(
-  <Provider store={store}>
-    <Router>
-      <App />
-    </Router>
-  </Provider>,
+  <JssProvider generateClassName={generateClassName}>
+    <MuiThemeProvider theme={theme}>
+      <Provider store={store}>
+        <Router>
+          <App />
+        </Router>
+      </Provider>
+    </MuiThemeProvider>
+  </JssProvider>,
   document.querySelector('#react-app'),
 );

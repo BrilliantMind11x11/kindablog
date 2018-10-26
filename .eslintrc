@@ -7,7 +7,14 @@
         }
     },
     "rules": {
-        "semi": 2
+        "semi": 2,
+        "react/forbid-prop-types": [false],
+        "import/no-unresolved": [
+            "error",
+            {
+              "ignore": ["@"]
+            }
+          ]
     },
     "extends": "airbnb"
 }
