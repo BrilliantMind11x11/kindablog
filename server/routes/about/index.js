@@ -1,22 +1,19 @@
-const express = require('express');
+import RestifyRouter from 'restify-router';  
 
-const router = express.Router();
+const Router = RestifyRouter.Router;
+const router = new Router();
 
-// middleware that is specific to this router
-router.use((req, res, next) => {
-  next();
-});
 // define the home page route
-router.get('/', (req, res) => {
-  res.status(200).send('About api router df');
+router.get('/api/about', (req, res) => {
+  res.json(200, { message: 'About api router df' });
 });
 // define the about route
-router.get('/v1', (req, res) => {
-  res.status(200).send('About about api router');
+router.get('/api/about/v1', (req, res) => {
+  res.json(200, { message: 'About about api router' });
 });
 
-router.get('/*', (req, res) => {
-  res.status(404).send({ error: 'not found' });
+router.get('/api/about/*', (req, res) => {
+  res.json(404, { error: 'not found' });
 });
 
 module.exports = router;

@@ -5,7 +5,7 @@ import { createStore, compose, applyMiddleware } from 'redux';
 import { renderToString } from 'react-dom/server';
 import { StaticRouter as Router } from "react-router";
 import qs from 'qs';
-import express from 'express';
+import restify from 'restify';
 // material ui
 import { SheetsRegistry } from 'react-jss/lib/jss';
 import JssProvider from 'react-jss/lib/JssProvider';
@@ -18,13 +18,23 @@ import green from '@material-ui/core/colors/green';
 import red from '@material-ui/core/colors/red';
 // end material ui staff
 import App from '@views';
-import routes from './routes';
+// import routes from './routes';
+import aboutRoutes from './routes/about';
+import homeRoutes from './routes/home'
+
+const app = restify.createServer();
+
+// app.use('/api', routes);
 
 
-const app = express();
-app.use('/api', routes);
-app.use('/dist', express.static('dist'));
-app.get(/^((?!\/api).)*$/, handleRender);
+aboutRoutes.applyRoutes(app);
+homeRoutes.applyRoutes(app);
+
+app.get('/dist/*', restify.plugins.serveStatic({
+  directory: './dist',
+  appendRequestPath: false,
+}));
+app.get('/(^\/((?!api).)*$)', handleRender);
 
 function handleRender(req, res) {
   const params = qs.parse(req.query);
@@ -65,7 +75,7 @@ function handleRender(req, res) {
   const css = sheetsRegistry.toString()
 
   // Send the rendered page back to the client
-  res.send(renderFullPage(html, css, preloadedState));
+  res.sendRaw(renderFullPage(html, css, preloadedState));
 }
 
 function renderFullPage(html, css, preloadedState = {}) {
