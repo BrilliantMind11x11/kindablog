@@ -1,6 +1,5 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import reducers from '@state';
 import { createStore, compose, applyMiddleware } from 'redux';
 import { renderToString } from 'react-dom/server';
 import { StaticRouter as Router } from "react-router";
@@ -17,26 +16,23 @@ import {
 import green from '@material-ui/core/colors/green';
 import red from '@material-ui/core/colors/red';
 // end material ui staff
+import reducers from '@state';
 import App from '@views';
-// import routes from './routes';
-import aboutRoutes from './routes/about';
-import homeRoutes from './routes/home'
+import attachRoutes from './routes';
 
 const app = restify.createServer();
-
-// app.use('/api', routes);
-
-
-aboutRoutes.applyRoutes(app);
-homeRoutes.applyRoutes(app);
+attachRoutes(app);
 
 app.get('/dist/*', restify.plugins.serveStatic({
   directory: './dist',
   appendRequestPath: false,
 }));
-app.get('/(^\/((?!api).)*$)', handleRender);
+// TODO figure this bastard out
+// app.get('/((?!(\/)+api).+)', handleRender);
+app.get('/*', handleRender);
 
 function handleRender(req, res) {
+  console.log('handler renderer started');
   const params = qs.parse(req.query);
   const user = { id: 1, name: 'server user' };
   const context = {};
@@ -101,6 +97,5 @@ function renderFullPage(html, css, preloadedState = {}) {
 
 // Serve the files on port 3000.
 app.listen(3000, () => {
-  const currentDate = Date('Y-m-d H:i:s')
-  console.log(`Example app listening on port 3000! Time ${currentDate} \n`);
+  console.log(`Example app listening on port 3000! Time ${Date('Y-m-d H:i:s')} \n`);
 });
